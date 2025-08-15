@@ -12,7 +12,7 @@ python3 -m venv .venv
 ## 2. Avtivar el Virtual Enviroment
 
 ````shell
-source .venv/bin/activate
+.venv/Scripts/activate
 ````
 
 ## 3. Desactivar el Virtual Enviroment
