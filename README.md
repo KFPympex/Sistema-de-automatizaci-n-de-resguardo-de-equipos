@@ -1,7 +1,9 @@
-# RESGUARDOS
+# Sistema de automatización de resguardo de equipos.
+
+# NOTA
+**Este proyecto se debe de descargar y correr de manera local para que funcione de manera correcta**
 
 ## Pasos a seguir
-
 
 ## 1. Crea un Virtual Enviroment **en caso de no querer instalar las dependencias de manera local**
 
@@ -65,5 +67,3 @@ python -V > runtime.txt
 python app.py 127.0.0.1
 ````
 
-# NOTA
-**Este proyecto se debe de descargar y correr de manera local para que funcione de manera correcta**
