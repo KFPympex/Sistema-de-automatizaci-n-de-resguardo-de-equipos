@@ -64,3 +64,6 @@ python -V > runtime.txt
 ````shell
 python app.py 127.0.0.1
 ````
+
+# NOTA
+**Este proyecto se debe de descargar y correr de manera local para que funcione de manera correcta**
