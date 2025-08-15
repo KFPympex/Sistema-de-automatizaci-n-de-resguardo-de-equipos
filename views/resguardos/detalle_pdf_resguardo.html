@@ -1,0 +1,78 @@
+$def with (r)
+
+<div class="alert alert-warning mt-4 text-center" role="alert">
+  ⚠️ Verifica si los datos son correctos antes de generar y descargar el PDF.
+</div>
+
+<div class="container mt-4">
+  <h2>Detalle de Resguardo #${r['id_resguardo']}</h2>
+  <dl class="row">
+    <dt class="col-sm-3">Fecha de Registro</dt>
+    <dd class="col-sm-9">${r['fecha_registro']}</dd>
+
+    <dt class="col-sm-3">Nombre(s)</dt>
+    <dd class="col-sm-9">${r['nombres']} ${r['primer_apellido']} ${r['segundo_apellido']}</dd>
+
+    <dt class="col-sm-3">Número de Colaborador</dt>
+    <dd class="col-sm-9">${r['numero_colaborador']}</dd>
+
+    <dt class="col-sm-3">Departamento</dt>
+    <dd class="col-sm-9">${r['departamento']}</dd>
+
+    <dt class="col-sm-3">Puesto</dt>
+    <dd class="col-sm-9">${r['puesto']}</dd>
+
+    <dt class="col-sm-3">Tipo</dt>
+    <dd class="col-sm-9">${r['tipo']}</dd>
+
+    <dt class="col-sm-3">Marca / Modelo</dt>
+    <dd class="col-sm-9">${r['marca']} ${r['modelo']}</dd>
+
+    <dt class="col-sm-3">Número de Serie</dt>
+    <dd class="col-sm-9">${r['numero_serie']}</dd>
+
+    <dt class="col-sm-3">Precio</dt>
+    <dd class="col-sm-9">$$${r['precio']}</dd>
+
+    <dt class="col-sm-3">Entrega</dt>
+    <dd class="col-sm-9">${r['nombre_entrega']}</dd>
+
+    <dt class="col-sm-3">Estatus Resguardo</dt>
+    <dd class="col-sm-9">${r['estatus_resguardo']}</dd>
+  </dl>
+  <div class="d-flex flex-row">
+    <a href="/listar_resguardos" class="btn btn-secondary d-flex align-items-center justify-content-center me-2"><svg
+        xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="me-2 bi-arrow-left "
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+      </svg>VOLVER</a>
+
+    <a href="/editar_resguardo/${r['id_resguardo']}"
+      class="btn btn-success d-flex align-items-center justify-content-center me-2"><svg
+        xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="me-2 bi bi-pencil-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z" />
+      </svg>EDITAR</a>
+
+    <a href="/generar_pdf_resguardo/${r['id_resguardo']}"
+      class="btn btn-primary d-flex align-items-center justify-content-center me-2" target="_blank"><svg
+        xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="me-2 bi bi-eye-fill"
+        viewBox="0 0 16 16">
+        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
+        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
+      </svg>VISUALIZAR PDF</a>
+
+    <form method="post" action="/borrar_resguardo/${r['id_resguardo']}" style="display:inline;" class="">
+      <button type="submit" href="/borrar_resguardo/${r['id_resguardo']}"
+        class="btn btn-danger d-flex align-items-center justify-content-center"
+        onclick="return confirm('¿Seguro que deseas borrar este resguardo?')"><svg xmlns="http://www.w3.org/2000/svg"
+          width="20" height="20" fill="currentColor" class="me-2 bi bi-trash3-fill" viewBox="0 0 16 16">
+          <path
+            d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
+        </svg>ELIMINAR</button>
+    </form>
+
+  </div>
+</div>
